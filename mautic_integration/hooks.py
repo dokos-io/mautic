@@ -5,7 +5,7 @@ from . import __version__ as app_version
 app_name = "mautic_integration"
 app_title = "Mautic Integration"
 app_publisher = "DOKOS"
-app_description = "Synchronizes "
+app_description = "Synchronizes Mautic with ERPNext"
 app_icon = "octicon octicon-git-compare"
 app_color = "#f5f5f5"
 app_email = "hello@dokos.io"
@@ -119,4 +119,3 @@ app_license = "GPLv3"
 # override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "mautic_integration.event.get_events"
 # }
-

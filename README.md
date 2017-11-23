@@ -1,6 +1,6 @@
 ## Mautic Integration
 
-Synchronizes 
+Synchronizes Mautic with ERPNext
 
 #### License
 

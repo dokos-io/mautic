@@ -1,0 +1,22 @@
+{
+ "creation": "2017-11-21 16:37:46.799772", 
+ "docstatus": 0, 
+ "doctype": "Data Migration Plan", 
+ "idx": 1, 
+ "mappings": [
+  {
+   "enabled": 0, 
+   "mapping": "Mautic Contact to ERPNext Contact"
+  }, 
+  {
+   "enabled": 1, 
+   "mapping": "Mautic Company to ERPNext Customer"
+  }
+ ], 
+ "modified": "2017-11-23 21:36:23.979970", 
+ "modified_by": "Administrator", 
+ "module": "Mautic Integration", 
+ "name": "Mautic Sync", 
+ "owner": "Administrator", 
+ "plan_name": "Mautic Sync"
+}
