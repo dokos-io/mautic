@@ -1,6 +1,6 @@
 {
- "condition": "{\"search\": \"is:!anonymous\"}", 
- "creation": "2017-11-21 15:52:28.969218", 
+ "condition": "", 
+ "creation": "2017-12-18 19:31:39.119290", 
  "docstatus": 0, 
  "doctype": "Data Migration Mapping", 
  "fields": [
@@ -28,14 +28,14 @@
  "idx": 0, 
  "local_doctype": "Contact", 
  "local_primary_key": "mautic_sync_id", 
- "mapping_name": "Mautic Contact to ERPNext Contact", 
- "mapping_type": "Pull", 
+ "mapping_name": "ERPNext Contact to Mautic Contact", 
+ "mapping_type": "Push", 
  "migration_id_field": "mautic_sync_id", 
- "modified": "2017-12-18 22:49:23.342714", 
+ "modified": "2017-12-18 22:49:23.371114", 
  "modified_by": "Administrator", 
- "name": "Mautic Contact to ERPNext Contact", 
+ "name": "ERPNext Contact to Mautic Contact", 
  "owner": "Administrator", 
- "page_length": 20, 
+ "page_length": 10, 
  "remote_objectname": "Contact", 
  "remote_primary_key": "id"
 }

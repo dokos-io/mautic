@@ -5,15 +5,23 @@
  "idx": 1, 
  "mappings": [
   {
-   "enabled": 0, 
+   "enabled": 1, 
    "mapping": "Mautic Contact to ERPNext Contact"
   }, 
   {
    "enabled": 1, 
    "mapping": "Mautic Company to ERPNext Customer"
+  }, 
+  {
+   "enabled": 1, 
+   "mapping": "ERPNext Contact to Mautic Contact"
+  }, 
+  {
+   "enabled": 1, 
+   "mapping": "ERPNext Customer to Mautic Companies"
   }
  ], 
- "modified": "2017-11-23 21:36:23.979970", 
+ "modified": "2017-12-18 22:49:23.278448", 
  "modified_by": "Administrator", 
  "module": "Mautic Integration", 
  "name": "Mautic Sync", 

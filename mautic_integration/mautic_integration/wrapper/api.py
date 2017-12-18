@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
+# Initial code by https://github.com/divio/python-mautic 
 from __future__ import unicode_literals, absolute_import
 
 import requests
 from requests_oauthlib import OAuth2Session
 import json
+import os
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 class MauticOauth2Client(object):
     def __init__(

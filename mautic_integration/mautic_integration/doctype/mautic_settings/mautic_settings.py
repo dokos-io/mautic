@@ -12,7 +12,43 @@ import urllib
 import datetime
 
 class MauticSettings(Document):
-	pass
+	def validate(self):
+		if self.enable == 1:
+			self.create_mautic_connector()
+
+	def sync(self):
+		"""Create and execute Data Migration Run for Mautic Sync plan"""
+		frappe.has_permission('Mautic Settings', throw=True)
+
+		doc = frappe.get_doc({
+			'doctype': 'Data Migration Run',
+			'data_migration_plan': 'Mautic Sync',
+			'data_migration_connector': 'Mautic Connector'
+		}).insert()
+
+		doc.run()
+
+	def create_mautic_connector(self):
+		if frappe.db.exists('Data Migration Connector', 'Mautic Connector'):
+			mautic_connector = frappe.get_doc('Data Migration Connector', 'Mautic Connector')
+			mautic_connector.connector_type = 'Custom'
+			mautic_connector.python_module = 'mautic_integration.mautic_integration.connectors.mautic_connector'
+			mautic_connector.save()
+			return
+
+		frappe.get_doc({
+			'doctype': 'Data Migration Connector',
+			'connector_type': 'Custom',
+			'connector_name': 'Mautic Connector',
+			'python_module': 'mautic_integration.mautic_integration.connectors.mautic_connector',
+		}).insert()
+
+@frappe.whitelist()
+def sync():
+	mautic_settings = frappe.get_doc('Mautic Settings')
+	mautic_settings.sync()
+
+
 
 @frappe.whitelist()
 def authorization_code():
@@ -27,7 +63,6 @@ def authorization_code():
 	url = doc.base_url + '/oauth/v2/authorize?' + urllib.urlencode(data)
 
 	return url
-
 
 @frappe.whitelist()
 def mautic_callback(code=None):
