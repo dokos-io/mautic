@@ -3,7 +3,7 @@ Version: 1.0.0 beta
 
 #### Installation
 
-This application requires (Frappe)[https://github.com/frappe/frappe] and (ERPNext)[https://github.com/frappe/erpnext] v10.0.0 or higher.
+This application requires [Frappe](https://github.com/frappe/frappe) and [ERPNext](https://github.com/frappe/erpnext) v10.0.0 or higher.
 
 1. `bench get-app mautic_integration https://github.com/DOKOS-IO/mautic_integration/`
 2. `bench install-app mautic_integration`
@@ -26,7 +26,8 @@ Your ERPNext and Mautic sites need to have SSL certificates.
 |Company Website| --> |Customer Website|
 
 *Post Processing*  
-If no address called "*CustomerName*-Mautic" exists, a new one is created.
+
+If no address called "*CustomerName*-Mautic" exists, a new one is created.  
 Else the existing one is updated.
 
 ##### Mautic Contact to ERPNext Contact
@@ -40,7 +41,8 @@ Else the existing one is updated.
 |Contact Email| --> |Contact Email ID|
 
 *Post Processing*  
-If the contact in Mautic is linked to an organization, the contact in ERPNext is linked to the corresponding Customer or Lead (*company_name* field).
+
+If the contact in Mautic is linked to an organization, the contact in ERPNext is linked to the corresponding Customer or Lead (*company_name* field).  
 Else a new Lead is created and linked to the contact.
 
 ##### ERPNext Customer to Mautic Companies
