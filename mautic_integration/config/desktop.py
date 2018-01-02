@@ -6,7 +6,7 @@ def get_data():
 	return [
 		{
 			"module_name": "Mautic Integration",
-			"color": "#f5f5f5",
+			"color": "#5C6BC0",
 			"icon": "octicon octicon-git-compare",
 			"type": "module",
 			"label": _("Mautic Integration")
