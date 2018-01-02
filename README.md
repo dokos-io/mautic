@@ -18,34 +18,42 @@ Your ERPNext and Mautic sites need to have SSL certificates.
 
 ##### Mautic Company to ERPNext Customer
 
-**Basic Mapping**
+*Basic Mapping*  
+|Source|Flow|Target|
+|--|--|--|
 |Company Name| --> |Customer Name|
 |Company Website| --> |Customer Website|
 
-**Post Processing**
-If no address called "__CustomerName__-Mautic" exists, a new one is created.
+*Post Processing*  
+If no address called "*CustomerName*-Mautic" exists, a new one is created.
 Else the existing one is updated.
 
 ##### Mautic Contact to ERPNext Contact
 
-**Basic Mapping**
+*Basic Mapping*  
+|Source|Flow|Target|
+|--|--|--|
 |Contact First Name| --> |Contact First Name|
 |Contact Last Name| --> |Contact Last Name|
 |Contact Email| --> |Contact Email ID|
 
-**Post Processing**
-If the contact in Mautic is linked to an organization, the contact in ERPNext is linked to the corresponding Customer or Lead (company_name field).
+*Post Processing*  
+If the contact in Mautic is linked to an organization, the contact in ERPNext is linked to the corresponding Customer or Lead (*company_name* field).
 Else a new Lead is created and linked to the contact.
 
 ##### ERPNext Customer to Mautic Companies
 
-**Basic Mapping**
+*Basic Mapping*  
+|Source|Flow|Target|
+|--|--|--|
 |Customer Name| --> |Company Name|
 |Customer Website| --> |Company Website|
 
 ##### ERPNext Contact to Mautic Contact
 
-**Basic Mapping**
+*Basic Mapping*  
+|Source|Flow|Target|
+|--|--|--|
 |Contact First Name| --> |Contact First Name|
 |Contact Last Name| --> |Contact Last Name|
 |Contact Email ID| --> |Contact Email|
