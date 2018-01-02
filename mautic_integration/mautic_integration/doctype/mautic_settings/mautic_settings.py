@@ -15,6 +15,7 @@ class MauticSettings(Document):
 	def validate(self):
 		if self.enable == 1:
 			self.create_mautic_connector()
+			self.create_mautic_plan()
 
 	def sync(self):
 		"""Create and execute Data Migration Run for Mautic Sync plan"""
@@ -26,7 +27,10 @@ class MauticSettings(Document):
 			'data_migration_connector': 'Mautic Connector'
 		}).insert()
 
-		doc.run()
+		try:
+			doc.run()
+		except Exception as e:
+			frappe.logger().debug({"Mautic Integration Error: "}, e)
 
 	def create_mautic_connector(self):
 		if frappe.db.exists('Data Migration Connector', 'Mautic Connector'):
@@ -43,10 +47,45 @@ class MauticSettings(Document):
 			'python_module': 'mautic_integration.mautic_integration.connectors.mautic_connector',
 		}).insert()
 
+	def create_mautic_plan(self):
+		if frappe.db.exists('Data Migration Plan', 'Mautic Sync'):
+			mautic_sync = frappe.get_doc('Data Migration Plan', 'Mautic Sync')
+			mautic_sync.module = "Mautic Integration"
+			mautic_sync.update({"mappings":[]})
+
+			mappings = ["Mautic Company to ERPNext Customer", "Mautic Contact to ERPNext Contact", "ERPNext Customer to Mautic Companies", "ERPNext Contact to Mautic Contact"]
+
+			for mapping in mappings:
+				mautic_sync.append("mappings", {
+					"mapping": mapping,
+					"enabled": 1
+				})
+			mautic_sync.save()
+			frappe.db.commit()
+			return
+
+		else:
+			mautic_sync = frappe.get_doc('Data Migration Plan', 'Mautic Sync')
+			mautic_sync.module = "Mautic Integration"
+
+			mappings = ["Mautic Company to ERPNext Customer", "Mautic Contact to ERPNext Contact", "ERPNext Customer to Mautic Companies", "ERPNext Contact to Mautic Contact"]
+
+			for mapping in mappings:
+				mautic_sync.append("mappings", {
+					"mapping": mapping,
+					"enabled": 1
+				})
+			mautic_sync.insert()
+
 @frappe.whitelist()
 def sync():
 	mautic_settings = frappe.get_doc('Mautic Settings')
-	mautic_settings.sync()
+	if mautic_settings.enable == 1:
+		if not frappe.db.exists('Data Migration Connector', 'Mautic Connector'):
+			self.create_mautic_connector()
+		if not frappe.db.exists('Data Migration Plan', 'Mautic Sync'):
+			self.create_mautic_plan()
+		mautic_settings.sync()
 
 
 

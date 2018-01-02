@@ -9,6 +9,7 @@ from frappe.utils import now_datetime
 from mautic_integration.mautic_integration.doctype.mautic_settings.mautic_settings import refresh_token
 from mautic_integration.mautic_integration.wrapper.contacts import Contacts
 from mautic_integration.mautic_integration.wrapper.companies import Companies
+from frappe.utils.error import make_error_snapshot
 
 class MauticConnector(BaseConnection):
 	def __init__(self, connector):
@@ -27,7 +28,14 @@ class MauticConnector(BaseConnection):
 
 		self.name_field = 'id'
 
-		self.mautic_connect = MauticOauth2Client(base_url=self.base_url, client_id=self.client_id, client_secret=self.client_secret, token=self.token, token_updater=refresh_token)
+		try:
+			self.mautic_connect = MauticOauth2Client(base_url=self.base_url, client_id=self.client_id, client_secret=self.client_secret, token=self.token, token_updater=refresh_token)
+		except Exception as e:
+			make_error_snapshot(e)
+
+		if not hasattr(self.mautic_connect, 'session'):
+			frappe.throw(_("Your Mautic Connection Token has expired. Please renew it."))
+			frappe.logger().error(' Mautic Connection Token has expired')
 
 	def get(self, remote_objectname, fields=None, filters=None, start=0, page_length=10):
 		search = filters.get('search')

@@ -7,7 +7,7 @@ app_title = "Mautic Integration"
 app_publisher = "DOKOS"
 app_description = "Synchronizes Mautic with ERPNext"
 app_icon = "octicon octicon-git-compare"
-app_color = "#f5f5f5"
+app_color = "#5C6BC0"
 app_email = "hello@dokos.io"
 app_license = "GPLv3"
 
@@ -90,23 +90,11 @@ app_license = "GPLv3"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"mautic_integration.tasks.all"
-# 	],
-# 	"daily": [
-# 		"mautic_integration.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"mautic_integration.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"mautic_integration.tasks.weekly"
-# 	]
-# 	"monthly": [
-# 		"mautic_integration.tasks.monthly"
-# 	]
-# }
+scheduler_events = {
+	"all": [
+		"mautic_integration.mautic_integration.doctype.mautic_settings.mautic_settings.sync"
+	]
+}
 
 # Testing
 # -------
