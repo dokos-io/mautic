@@ -4,3 +4,6 @@ Doctype: Mautic Settings,Mautic Base URL,URL de Mautic
 Doctype: Mautic Settings,Client ID,Identifiant Client
 Doctype: Mautic Settings,Client Secret,Secret Client
 Doctype: Mautic Settings,Allow Mautic Access,Autoriser l'Accès à Mautic
+mautic_integration.mautic_integration.templates.pages.success,Connection Success,Connection Réussie
+mautic_integration.mautic_integration.templates.pages.success,Your connection request to Mautic was successfully accepted,Votre demande de connection à Mautic a été acceptée
+mautic_integration.mautic_integration.templates.pages.success,Back to Desk,Revenir au Bureau

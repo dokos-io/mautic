@@ -21,14 +21,27 @@ class MauticSettings(Document):
 		"""Create and execute Data Migration Run for Mautic Sync plan"""
 		frappe.has_permission('Mautic Settings', throw=True)
 
-		doc = frappe.get_doc({
-			'doctype': 'Data Migration Run',
-			'data_migration_plan': 'Mautic Sync',
-			'data_migration_connector': 'Mautic Connector'
-		}).insert()
+		exists = frappe.db.exists('Data Migration Run', dict(status=('in', ['Fail', 'Error']),	name=('!=', self.name)))
+		if exists:
+			failed_run = frappe.get_doc("Data Migration Run", dict(status=('in', ['Fail', 'Error'])))
+			failed_run.delete()
+
+		started = frappe.db.exists('Data Migration Run', dict(status=('in', ['Started']),	name=('!=', self.name)))
+		if started:
+			print("Break")
+			return
 
 		try:
-			doc.run()
+			doc = frappe.get_doc({
+				'doctype': 'Data Migration Run',
+				'data_migration_plan': 'Mautic Sync',
+				'data_migration_connector': 'Mautic Connector'
+			}).insert()
+
+			try:
+				doc.run()
+			except Exception:
+					frappe.log_error(frappe.get_traceback())
 		except Exception as e:
 			frappe.logger().debug({"Mautic Integration Error: "}, e)
 
@@ -85,7 +98,10 @@ def sync():
 			self.create_mautic_connector()
 		if not frappe.db.exists('Data Migration Plan', 'Mautic Sync'):
 			self.create_mautic_plan()
-		mautic_settings.sync()
+		try:
+			mautic_settings.sync()
+		except Exception:
+			frappe.log_error(frappe.get_traceback())
 
 
 
@@ -123,6 +139,8 @@ def mautic_callback(code=None):
 			if 'access_token' in r:
 				frappe.db.set_value("Mautic Settings", None, "session_token", r['access_token'])
 			frappe.db.commit()
+			frappe.local.response["type"] = "redirect"
+			frappe.local.response["location"] = "/success.html"
 			return
 
 		except Exception as e:
