@@ -4,15 +4,15 @@ include *.json
 include *.md
 include *.py
 include *.txt
-recursive-include mautic_integration *.css
-recursive-include mautic_integration *.csv
-recursive-include mautic_integration *.html
-recursive-include mautic_integration *.ico
-recursive-include mautic_integration *.js
-recursive-include mautic_integration *.json
-recursive-include mautic_integration *.md
-recursive-include mautic_integration *.png
-recursive-include mautic_integration *.py
-recursive-include mautic_integration *.svg
-recursive-include mautic_integration *.txt
-recursive-exclude mautic_integration *.pyc
+recursive-include mautic *.css
+recursive-include mautic *.csv
+recursive-include mautic *.html
+recursive-include mautic *.ico
+recursive-include mautic *.js
+recursive-include mautic *.json
+recursive-include mautic *.md
+recursive-include mautic *.png
+recursive-include mautic *.py
+recursive-include mautic *.svg
+recursive-include mautic *.txt
+recursive-exclude mautic *.pyc

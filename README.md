@@ -1,12 +1,12 @@
-## Mautic Integration
+## Mautic
 Version: 1.0.0 beta
 
 #### Installation
 
 This application requires [Frappe](https://github.com/frappe/frappe) and [ERPNext](https://github.com/frappe/erpnext) v10.0.0 or higher.
 
-1. `bench get-app mautic_integration https://github.com/DOKOS-IO/mautic_integration/`
-2. `bench install-app mautic_integration`
+1. `bench get-app mautic https://github.com/DOKOS-IO/mautic/`
+2. `bench install-app mautic`
 3. `bench restart && bench migrate`
 
 The application is scheduled to run once a day by default.

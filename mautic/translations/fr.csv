@@ -1,0 +1,9 @@
+Doctype: Mautic Settings,Mautic Settings,Paramètres Mautic
+Doctype: Mautic Settings,Mautic API Credentials,Codes d'Accès Mautic
+Doctype: Mautic Settings,Mautic Base URL,URL de Mautic
+Doctype: Mautic Settings,Client ID,Identifiant Client
+Doctype: Mautic Settings,Client Secret,Secret Client
+Doctype: Mautic Settings,Allow Mautic Access,Autoriser l'Accès à Mautic
+mautic.mautic.templates.pages.success,Connection Success,Connection Réussie
+mautic.mautic.templates.pages.success,Your connection request to Mautic was successfully accepted,Votre demande de connection à Mautic a été acceptée
+mautic.mautic.templates.pages.success,Back to Desk,Revenir au Bureau
