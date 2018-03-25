@@ -35,23 +35,35 @@ class MauticConnector(BaseConnection):
 
 		if not hasattr(self.mautic_connect, 'session'):
 			frappe.throw(_("Your Mautic Connection Token has expired. Please renew it."))
-			frappe.logger().error(' Mautic Connection Token has expired')
+			frappe.log_error(' Mautic Connection Token has expired', 'Mautic Integration')
 
 	def get(self, remote_objectname, fields=None, filters=None, start=0, page_length=10):
 		search = filters.get('search')
 
 		if remote_objectname == 'Contact':
-			return self.get_contacts(search, start, page_length)
+			try:
+				return self.get_contacts(search, start, page_length)
+			except Exception as e:
+				frappe.log_error(e, 'Mautic Integration')
 
 		if remote_objectname == 'Company':
-			return self.get_companies(search, start, page_length)
+			try:
+				return self.get_companies(search, start, page_length)
+			except Exception as e:
+				frappe.log_error(e, 'Mautic Integration')
 
 	def insert(self, doctype, doc):
 		if doctype == 'Contact':
-			return self.insert_contacts(doc)
+			try:
+				return self.insert_contacts(doc)
+			except Exception as e:
+				frappe.log_error(e, 'Mautic Integration')
 
 		if doctype == 'Company':
-			return self.insert_customers(doc)
+			try:
+				return self.insert_customers(doc)
+			except Exception as e:
+				frappe.log_error(e, 'Mautic Integration')
 
 	def update(self, doctype, doc, migration_id):
 		pass
