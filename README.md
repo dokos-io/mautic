@@ -10,7 +10,8 @@ This application requires [Frappe](https://github.com/frappe/frappe) and [ERPNex
 3. `bench restart && bench migrate`
 
 In Mautic, create new API credentials for OAuth2.  
-In the redirect URI section add the following URI: {Your Site}?cmd=mautic.mautic.doctype.mautic_settings.mautic_settings.mautic_callback
+In the redirect URI section add the following URI:
+`{Your Site}?cmd=mautic.mautic.doctype.mautic_settings.mautic_settings.mautic_callback`
 
 In ERPNext, add your API credentials, the link to your Mautic instance, save and click on "Allow Mautic Access"  
 
