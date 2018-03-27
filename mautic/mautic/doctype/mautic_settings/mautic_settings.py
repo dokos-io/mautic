@@ -11,6 +11,10 @@ from frappe.utils.response import json_handler
 import urllib
 import datetime
 
+if frappe.conf.developer_mode:
+	import os
+	os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+
 class MauticSettings(Document):
 	def validate(self):
 		if self.enable == 1:

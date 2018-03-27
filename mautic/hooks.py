@@ -91,7 +91,7 @@ app_license = "GPLv3"
 # ---------------
 
 scheduler_events = {
-	"all": [
+	"hourly": [
 		"mautic.mautic.doctype.mautic_settings.mautic_settings.sync"
 	]
 }

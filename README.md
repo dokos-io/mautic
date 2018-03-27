@@ -9,7 +9,12 @@ This application requires [Frappe](https://github.com/frappe/frappe) and [ERPNex
 2. `bench install-app mautic`
 3. `bench restart && bench migrate`
 
-The application is scheduled to run once a day by default.
+In Mautic, create new API credentials for OAuth2.  
+In the redirect URI section add the following URI: {Your Site}?cmd=mautic.mautic.doctype.mautic_settings.mautic_settings.mautic_callback
+
+In ERPNext, add your API credentials, the link to your Mautic instance, save and click on "Allow Mautic Access"  
+
+The application is scheduled to run hourly by default.
 Verify that your scheduler is enabled (`bench enable-scheduler`).
 
 Your ERPNext and Mautic sites need to have SSL certificates.
@@ -60,9 +65,14 @@ Else a new Lead is created and linked to the contact.
 
 |Source|Flow|Target|
 |---|---|---|
+|Contact Salutation| --> |Contact Title|
 |Contact First Name| --> |Contact First Name|
 |Contact Last Name| --> |Contact Last Name|
 |Contact Email ID| --> |Contact Email|
+|Contact Phone| --> |Contact Phone|
+|Contact Mobile No| --> |Contact Mobile|
+|Contact Linked Customer| --> |Contact Company|
+
 
 #### License
 GPLv3

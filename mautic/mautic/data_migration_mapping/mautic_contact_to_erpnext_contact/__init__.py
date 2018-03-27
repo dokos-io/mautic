@@ -16,6 +16,7 @@ def post_process(remote_doc=None, local_doc=None, **kwargs):
 
 	contacts = remote_doc
 	erpnext_contact = local_doc
+
 	if contacts:
 		organization = contacts["fields"]["all"]["company"]
 		if organization:
@@ -26,6 +27,7 @@ def post_process(remote_doc=None, local_doc=None, **kwargs):
 
 			elif frappe.db.exists("Lead", dict(company_name=organization)):
 				leadorg = frappe.get_doc("Lead", dict(company_name=organization))
+				leadorg.status = "Converted"
 				erpnext_contact.append("links",{"link_doctype": "Lead", "link_name": leadorg.name})
 				erpnext_contact.save()
 				frappe.db.commit()
@@ -35,7 +37,12 @@ def post_process(remote_doc=None, local_doc=None, **kwargs):
 
 
 		else:
-			if not frappe.db.exists("Lead", dict(email_id=contacts["fields"]["all"]["email"])):
+			linked_to_lead = 0
+			for link in erpnext_contact.links:
+				if link.link_doctype == "Lead":
+					linked_to_lead += 1
+
+			if not frappe.db.exists("Lead", dict(email_id=contacts["fields"]["all"]["email"])) and linked_to_lead != 0:
 				newlead = frappe.get_doc({
 					'doctype': 'Lead',
 					'lead_name': contacts["fields"]["all"]["firstname"] + " " + contacts["fields"]["all"]["lastname"],
