@@ -2,7 +2,7 @@
  "creation": "2017-11-21 16:37:46.799772", 
  "docstatus": 0, 
  "doctype": "Data Migration Plan", 
- "idx": 1, 
+ "idx": 44, 
  "mappings": [
   {
    "enabled": 1, 
@@ -21,7 +21,7 @@
    "mapping": "ERPNext Contact to Mautic Contact"
   }
  ], 
- "modified": "2018-03-27 13:27:32.662431", 
+ "modified": "2018-03-29 10:00:53.506260", 
  "modified_by": "Administrator", 
  "module": "Mautic", 
  "name": "Mautic Sync", 

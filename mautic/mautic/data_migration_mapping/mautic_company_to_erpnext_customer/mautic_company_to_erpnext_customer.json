@@ -20,13 +20,13 @@
    "remote_fieldname": "companywebsite"
   }
  ], 
- "idx": 0, 
+ "idx": 1, 
  "local_doctype": "Customer", 
  "local_primary_key": "mautic_sync_id", 
  "mapping_name": "Mautic Company to ERPNext Customer", 
  "mapping_type": "Pull", 
  "migration_id_field": "mautic_sync_id", 
- "modified": "2018-03-27 13:27:32.731648", 
+ "modified": "2018-03-29 10:00:53.585244", 
  "modified_by": "Administrator", 
  "name": "Mautic Company to ERPNext Customer", 
  "owner": "Administrator", 

@@ -23,6 +23,31 @@
    "is_child_table": 0, 
    "local_fieldname": "email_id", 
    "remote_fieldname": "email"
+  }, 
+  {
+   "is_child_table": 0, 
+   "local_fieldname": "salutation", 
+   "remote_fieldname": "title"
+  }, 
+  {
+   "is_child_table": 0, 
+   "local_fieldname": "phone", 
+   "remote_fieldname": "phone"
+  }, 
+  {
+   "is_child_table": 0, 
+   "local_fieldname": "mobile_no", 
+   "remote_fieldname": "mobile"
+  }, 
+  {
+   "is_child_table": 0, 
+   "local_fieldname": "company", 
+   "remote_fieldname": "company"
+  }, 
+  {
+   "is_child_table": 0, 
+   "local_fieldname": "reject", 
+   "remote_fieldname": "reject"
   }
  ], 
  "idx": 0, 
@@ -31,7 +56,7 @@
  "mapping_name": "ERPNext Contact to Mautic Contact", 
  "mapping_type": "Push", 
  "migration_id_field": "mautic_sync_id", 
- "modified": "2018-03-27 13:27:32.771316", 
+ "modified": "2018-03-29 10:00:53.625090", 
  "modified_by": "Administrator", 
  "name": "ERPNext Contact to Mautic Contact", 
  "owner": "Administrator", 
