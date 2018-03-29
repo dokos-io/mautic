@@ -5,9 +5,12 @@ import frappe
 def pre_process(doc):
 
 	company = None
+	reject = None
 	for link in doc.links:
 		if link.link_doctype == "Customer":
 			company = link.link_name
+		elif link.link_doctype not in ["Customer", "Lead"]:
+			reject = 1
 
 	returned_doc = {
 		'first_name': doc.first_name,
@@ -17,7 +20,8 @@ def pre_process(doc):
 		'phone': doc.phone,
 		'mobile_no': doc.mobile_no,
 		'company': company,
-		'mautic_sync_id': doc.mautic_sync_id
+		'mautic_sync_id': doc.mautic_sync_id,
+		'reject': reject
 	}
 
 	return returned_doc

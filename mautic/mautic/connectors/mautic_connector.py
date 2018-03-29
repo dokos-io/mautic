@@ -54,10 +54,13 @@ class MauticConnector(BaseConnection):
 
 	def insert(self, doctype, doc):
 		if doctype == 'Contact':
-			try:
-				return self.insert_contacts(doc)
-			except Exception as e:
-				frappe.log_error(doc + "<br>" + e, 'Mautic Contact Insert Error')
+			if doc.reject == 1:
+				return
+			else:
+				try:
+					return self.insert_contacts(doc)
+				except Exception as e:
+					frappe.log_error(doc + "<br>" + e, 'Mautic Contact Insert Error')
 
 		if doctype == 'Company':
 			try:
@@ -67,10 +70,13 @@ class MauticConnector(BaseConnection):
 
 	def update(self, doctype, doc, migration_id):
 		if doctype == 'Contact':
-			try:
-				return self.update_contacts(doc, migration_id)
-			except Exception as e:
-				frappe.log_error(doc + "<br>" + e, 'Mautic Contact Update Error')
+			if doc.reject == 1:
+				return
+			else:
+				try:
+					return self.update_contacts(doc, migration_id)
+				except Exception as e:
+					frappe.log_error(doc + "<br>" + e, 'Mautic Contact Update Error')
 
 		if doctype == 'Company':
 			try:
