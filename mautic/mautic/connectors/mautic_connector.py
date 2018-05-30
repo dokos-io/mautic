@@ -9,6 +9,7 @@ from frappe.utils import now_datetime
 from mautic.mautic.doctype.mautic_settings.mautic_settings import refresh_token
 from mautic.mautic.wrapper.contacts import Contacts
 from mautic.mautic.wrapper.companies import Companies
+from mautic.mautic.wrapper.segments import Segments
 from frappe.utils.error import make_error_snapshot
 
 class MauticConnector(BaseConnection):
@@ -51,6 +52,12 @@ class MauticConnector(BaseConnection):
 				return self.get_companies(search, start, page_length)
 			except Exception as e:
 				frappe.log_error(e, 'Mautic Company Get Error')
+
+		if remote_objectname == 'Segment':
+			try:
+				return self.get_segments(search, start, page_length)
+			except Exception as e:
+				frappe.log_error(e, 'Mautic Segment Get Error')
 
 	def insert(self, doctype, doc):
 		if doctype == 'Contact':
@@ -107,8 +114,12 @@ class MauticConnector(BaseConnection):
 		else:
 			result = []
 			for k in fetched_data["contacts"]:
+				contacts_segments = contacts.get_contact_segments(k)
+				fetched_data["contacts"][k].update({'segments': contacts_segments})
 				result.append(fetched_data["contacts"][k])
+
 			return list(result)
+
 
 	def get_companies(self, search, start=0, page_length=10):
 		companies = Companies(client=self.mautic_connect)
@@ -121,6 +132,19 @@ class MauticConnector(BaseConnection):
 			result = []
 			for k in fetched_data["companies"]:
 				result.append(fetched_data["companies"][k])
+			return list(result)
+
+	def get_segments(self, search, start=0, page_length=10):
+		segments = Segments(client=self.mautic_connect)
+		fetched_data = segments.get_list(search=search, start=start, limit=page_length)
+
+		if 'errors' in fetched_data:
+			frappe.log_error(fetched_data['errors'], "Mautic Segment Get Error")
+
+		else:
+			result = []
+			for k in fetched_data["lists"]:
+				result.append(fetched_data["lists"][k])
 			return list(result)
 
 	def insert_contacts(self, doc):

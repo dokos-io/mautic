@@ -6,6 +6,10 @@
  "mappings": [
   {
    "enabled": 1, 
+   "mapping": "Mautic Segment to ERPNext Segment"
+  }, 
+  {
+   "enabled": 1, 
    "mapping": "Mautic Company to ERPNext Customer"
   }, 
   {
@@ -21,7 +25,7 @@
    "mapping": "ERPNext Contact to Mautic Contact"
   }
  ], 
- "modified": "2018-03-29 10:00:53.506260", 
+ "modified": "2018-05-30 17:22:39.687167", 
  "modified_by": "Administrator", 
  "module": "Mautic", 
  "name": "Mautic Sync", 

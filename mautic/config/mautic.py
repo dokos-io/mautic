@@ -13,5 +13,15 @@ def get_data():
 					"description": _("Mautic Settings"),
 				}
 				]
+		},
+		{
+			"label": _("Documents"),
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Mautic Segment",
+					"description": _("Mautic Segment"),
+				}
+				]
 		}
 	]

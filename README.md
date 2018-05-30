@@ -45,6 +45,7 @@ Else the existing one is updated.
 |Contact First Name| --> |Contact First Name|
 |Contact Last Name| --> |Contact Last Name|
 |Contact Email| --> |Contact Email ID|
+|Contact Segment| --> |Contact Segment| (Only one segment is synchronized for now)
 
 *Post Processing*  
 

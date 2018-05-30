@@ -56,7 +56,7 @@
  "mapping_name": "ERPNext Contact to Mautic Contact", 
  "mapping_type": "Push", 
  "migration_id_field": "mautic_sync_id", 
- "modified": "2018-03-29 10:00:53.625090", 
+ "modified": "2018-05-30 17:22:39.789620", 
  "modified_by": "Administrator", 
  "name": "ERPNext Contact to Mautic Contact", 
  "owner": "Administrator", 

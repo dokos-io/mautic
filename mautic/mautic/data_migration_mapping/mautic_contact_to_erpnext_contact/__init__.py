@@ -3,11 +3,18 @@
 import frappe
 
 def pre_process(contacts):
+	if contacts['segments']['total'] == 0:
+		segment = ""
+	else:
+		for s in contacts['segments']['lists']:
+			segment = contacts['segments']['lists'][s]['name']
+
 	return {
 		'id': contacts["id"],
 		'firstname': contacts["fields"]["all"]["firstname"],
 		'lastname': contacts["fields"]["all"]["lastname"],
-		'email': contacts["fields"]["all"]["email"]
+		'email': contacts["fields"]["all"]["email"],
+		'segment': segment
 	}
 
 def post_process(remote_doc=None, local_doc=None, **kwargs):
