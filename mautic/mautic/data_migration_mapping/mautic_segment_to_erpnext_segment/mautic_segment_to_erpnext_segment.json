@@ -1,36 +1,36 @@
 {
- "condition": "", 
- "creation": "2018-05-30 16:48:55.778963", 
- "docstatus": 0, 
- "doctype": "Data Migration Mapping", 
+ "condition": "",
+ "creation": "2018-05-30 16:48:55.778963",
+ "docstatus": 0,
+ "doctype": "Data Migration Mapping",
  "fields": [
   {
-   "is_child_table": 0, 
-   "local_fieldname": "mautic_sync_id", 
+   "is_child_table": 0,
+   "local_fieldname": "mautic_sync_id",
    "remote_fieldname": "id"
-  }, 
+  },
   {
-   "is_child_table": 0, 
-   "local_fieldname": "segment_name", 
+   "is_child_table": 0,
+   "local_fieldname": "segment_name",
    "remote_fieldname": "name"
-  }, 
+  },
   {
-   "is_child_table": 0, 
-   "local_fieldname": "segment_description", 
+   "is_child_table": 0,
+   "local_fieldname": "segment_description",
    "remote_fieldname": "description"
   }
- ], 
- "idx": 0, 
- "local_doctype": "Mautic Segment", 
- "local_primary_key": "mautic_sync_id", 
- "mapping_name": "Mautic Segment to ERPNext Segment", 
- "mapping_type": "Pull", 
- "migration_id_field": "mautic_sync_id", 
- "modified": "2018-05-30 17:22:39.736343", 
- "modified_by": "Administrator", 
- "name": "Mautic Segment to ERPNext Segment", 
- "owner": "Administrator", 
- "page_length": 20, 
- "remote_objectname": "Segment", 
+ ],
+ "idx": 0,
+ "local_doctype": "Mautic Segment",
+ "local_primary_key": "mautic_sync_id",
+ "mapping_name": "Mautic Segment to ERPNext Segment",
+ "mapping_type": "Pull",
+ "migration_id_field": "mautic_sync_id",
+ "modified": "2018-07-06 19:21:41.765881",
+ "modified_by": "Administrator",
+ "name": "Mautic Segment to ERPNext Segment",
+ "owner": "Administrator",
+ "page_length": 20,
+ "remote_objectname": "Segment",
  "remote_primary_key": "id"
 }

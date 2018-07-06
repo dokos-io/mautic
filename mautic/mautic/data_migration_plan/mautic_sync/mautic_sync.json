@@ -1,34 +1,38 @@
 {
- "creation": "2017-11-21 16:37:46.799772", 
- "docstatus": 0, 
- "doctype": "Data Migration Plan", 
- "idx": 44, 
+ "creation": "2017-11-21 16:37:46.799772",
+ "docstatus": 0,
+ "doctype": "Data Migration Plan",
+ "idx": 444,
  "mappings": [
   {
-   "enabled": 1, 
+   "enabled": 1,
    "mapping": "Mautic Segment to ERPNext Segment"
-  }, 
+  },
   {
-   "enabled": 1, 
+   "enabled": 1,
    "mapping": "Mautic Company to ERPNext Customer"
-  }, 
+  },
   {
-   "enabled": 1, 
+   "enabled": 1,
    "mapping": "Mautic Contact to ERPNext Contact"
-  }, 
+  },
   {
-   "enabled": 1, 
+   "enabled": 1,
    "mapping": "ERPNext Customer to Mautic Companies"
-  }, 
+  },
   {
-   "enabled": 1, 
+   "enabled": 1,
    "mapping": "ERPNext Contact to Mautic Contact"
+  },
+  {
+   "enabled": 0,
+   "mapping": "Mautic Segments"
   }
- ], 
- "modified": "2018-05-30 17:22:39.687167", 
- "modified_by": "Administrator", 
- "module": "Mautic", 
- "name": "Mautic Sync", 
- "owner": "Administrator", 
+ ],
+ "modified": "2018-07-06 19:21:41.729396",
+ "modified_by": "Administrator",
+ "module": "Mautic",
+ "name": "Mautic Sync",
+ "owner": "Administrator",
  "plan_name": "Mautic Sync"
 }

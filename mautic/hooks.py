@@ -57,6 +57,10 @@ app_license = "GPLv3"
 # before_install = "mautic.install.before_install"
 # after_install = "mautic.install.after_install"
 
+# Migration
+#----------
+after_migrate = "mautic.customizations.after_migration_hooks.after_migrate"
+
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config

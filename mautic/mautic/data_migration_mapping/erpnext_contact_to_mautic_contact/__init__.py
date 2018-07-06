@@ -3,14 +3,16 @@
 import frappe
 
 def pre_process(doc):
-
 	company = None
 	reject = None
-	for link in doc.links:
-		if link.link_doctype == "Customer":
-			company = link.link_name
-		elif link.link_doctype not in ["Customer", "Lead"]:
-			reject = 1
+	try:
+		for link in doc.links:
+			if link.link_doctype == "Customer":
+				company = link.link_name
+			elif link.link_doctype not in ["Customer", "Lead"]:
+				reject = 1
+	except:
+		return doc
 
 	returned_doc = {
 		'first_name': doc.first_name,

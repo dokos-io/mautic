@@ -6,8 +6,9 @@ def pre_process(contacts):
 	if contacts['segments']['total'] == 0:
 		segment = ""
 	else:
+		segment = []
 		for s in contacts['segments']['lists']:
-			segment = contacts['segments']['lists'][s]['name']
+			segment.append({"name": contacts['segments']['lists'][s]['name']})
 
 	return {
 		'id': contacts["id"],

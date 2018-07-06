@@ -8,7 +8,7 @@ from frappe.model.document import Document
 from frappe.utils import get_request_site_address, now_datetime
 import requests
 from frappe.utils.response import json_handler
-import urllib
+from six.moves.urllib.parse import urlencode
 import datetime
 
 if frappe.conf.developer_mode:
@@ -119,7 +119,7 @@ def authorization_code():
 		'grant_type': 'authorization_code',
 		'response_type': 'code'
 		}
-	url = doc.base_url + '/oauth/v2/authorize?' + urllib.urlencode(data)
+	url = doc.base_url + '/oauth/v2/authorize?' + urlencode(data)
 
 	return url
 

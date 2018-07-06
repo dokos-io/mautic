@@ -1,36 +1,36 @@
 {
- "condition": "", 
- "creation": "2017-11-23 21:07:58.647796", 
- "docstatus": 0, 
- "doctype": "Data Migration Mapping", 
+ "condition": "",
+ "creation": "2017-11-23 21:07:58.647796",
+ "docstatus": 0,
+ "doctype": "Data Migration Mapping",
  "fields": [
   {
-   "is_child_table": 0, 
-   "local_fieldname": "mautic_sync_id", 
+   "is_child_table": 0,
+   "local_fieldname": "mautic_sync_id",
    "remote_fieldname": "id"
-  }, 
+  },
   {
-   "is_child_table": 0, 
-   "local_fieldname": "customer_name", 
+   "is_child_table": 0,
+   "local_fieldname": "customer_name",
    "remote_fieldname": "companyname"
-  }, 
+  },
   {
-   "is_child_table": 0, 
-   "local_fieldname": "website", 
+   "is_child_table": 0,
+   "local_fieldname": "website",
    "remote_fieldname": "companywebsite"
   }
- ], 
- "idx": 1, 
- "local_doctype": "Customer", 
- "local_primary_key": "mautic_sync_id", 
- "mapping_name": "Mautic Company to ERPNext Customer", 
- "mapping_type": "Pull", 
- "migration_id_field": "mautic_sync_id", 
- "modified": "2018-05-30 17:22:39.755881", 
- "modified_by": "Administrator", 
- "name": "Mautic Company to ERPNext Customer", 
- "owner": "Administrator", 
- "page_length": 20, 
- "remote_objectname": "Company", 
+ ],
+ "idx": 1,
+ "local_doctype": "Customer",
+ "local_primary_key": "mautic_sync_id",
+ "mapping_name": "Mautic Company to ERPNext Customer",
+ "mapping_type": "Pull",
+ "migration_id_field": "mautic_sync_id",
+ "modified": "2018-07-06 19:21:41.782494",
+ "modified_by": "Administrator",
+ "name": "Mautic Company to ERPNext Customer",
+ "owner": "Administrator",
+ "page_length": 20,
+ "remote_objectname": "Company",
  "remote_primary_key": "id"
 }
