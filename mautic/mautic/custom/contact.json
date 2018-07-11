@@ -27,7 +27,7 @@
    "in_list_view": 0,
    "in_standard_filter": 0,
    "insert_after": "mautic_segments",
-   "label": "Mautic",
+   "label": "",
    "modified": "2018-07-06 18:21:38.774484",
    "modified_by": "Administrator",
    "name": "Contact-mautic_section_end",
