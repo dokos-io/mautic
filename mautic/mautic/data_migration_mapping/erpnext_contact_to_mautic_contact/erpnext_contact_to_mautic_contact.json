@@ -45,10 +45,10 @@
    "remote_fieldname": "company"
   },
   {
-    "is_child_table": 0,
-    "local_fieldname": "reject",
-    "remote_fieldname": "reject"
-   }
+   "is_child_table": 0,
+   "local_fieldname": "reject",
+   "remote_fieldname": "reject"
+  }
  ],
  "idx": 0,
  "local_doctype": "Contact",
@@ -56,7 +56,7 @@
  "mapping_name": "ERPNext Contact to Mautic Contact",
  "mapping_type": "Push",
  "migration_id_field": "mautic_sync_id",
- "modified": "2018-08-01 10:21:41.815463",
+ "modified": "2018-08-02 13:41:26.220751",
  "modified_by": "Administrator",
  "name": "ERPNext Contact to Mautic Contact",
  "owner": "Administrator",

@@ -26,7 +26,7 @@
  "mapping_name": "ERPNext Customer to Mautic Companies",
  "mapping_type": "Push",
  "migration_id_field": "mautic_sync_id",
- "modified": "2018-07-06 19:21:41.804907",
+ "modified": "2018-08-02 13:41:26.210081",
  "modified_by": "Administrator",
  "name": "ERPNext Customer to Mautic Companies",
  "owner": "Administrator",

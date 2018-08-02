@@ -26,7 +26,7 @@
  "mapping_name": "Mautic Segment to ERPNext Segment",
  "mapping_type": "Pull",
  "migration_id_field": "mautic_sync_id",
- "modified": "2018-07-06 19:21:41.765881",
+ "modified": "2018-08-02 13:41:26.163839",
  "modified_by": "Administrator",
  "name": "Mautic Segment to ERPNext Segment",
  "owner": "Administrator",

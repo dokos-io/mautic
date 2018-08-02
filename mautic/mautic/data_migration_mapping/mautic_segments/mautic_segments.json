@@ -1,0 +1,25 @@
+{
+ "creation": "2018-07-06 18:27:33.794057",
+ "docstatus": 0,
+ "doctype": "Data Migration Mapping",
+ "fields": [
+  {
+   "is_child_table": 0,
+   "local_fieldname": "segment",
+   "remote_fieldname": "name"
+  }
+ ],
+ "idx": 0,
+ "local_doctype": "Mautic Segments",
+ "local_primary_key": "mautic_sync_id",
+ "mapping_name": "Mautic Segments",
+ "mapping_type": "Pull",
+ "migration_id_field": "mautic_sync_id",
+ "modified": "2018-08-02 13:41:26.235229",
+ "modified_by": "Administrator",
+ "name": "Mautic Segments",
+ "owner": "Administrator",
+ "page_length": 20,
+ "remote_objectname": "id",
+ "remote_primary_key": "segment"
+}

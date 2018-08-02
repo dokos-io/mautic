@@ -26,7 +26,7 @@
  "mapping_name": "Mautic Company to ERPNext Customer",
  "mapping_type": "Pull",
  "migration_id_field": "mautic_sync_id",
- "modified": "2018-07-06 19:21:41.782494",
+ "modified": "2018-08-02 13:41:26.185344",
  "modified_by": "Administrator",
  "name": "Mautic Company to ERPNext Customer",
  "owner": "Administrator",

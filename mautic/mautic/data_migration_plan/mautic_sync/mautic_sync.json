@@ -1,34 +1,38 @@
 {
-	"creation": "2017-11-21 16:37:46.799772",
-	"docstatus": 0,
-	"doctype": "Data Migration Plan",
-	"idx": 444,
-	"mappings": [
-		{
-		"enabled": 1,
-		"mapping": "Mautic Segment to ERPNext Segment"
-		},
-		{
-		"enabled": 1,
-		"mapping": "Mautic Company to ERPNext Customer"
-		},
-		{
-		"enabled": 1,
-		"mapping": "Mautic Contact to ERPNext Contact"
-		},
-		{
-		"enabled": 1,
-		"mapping": "ERPNext Customer to Mautic Companies"
-		},
-		{
-		"enabled": 1,
-		"mapping": "ERPNext Contact to Mautic Contact"
-		}
-	],
-	"modified": "2018-08-01 11:21:41.729396",
-	"modified_by": "Administrator",
-	"module": "Mautic",
-	"name": "Mautic Sync",
-	"owner": "Administrator",
-	"plan_name": "Mautic Sync"
+ "creation": "2017-11-21 16:37:46.799772",
+ "docstatus": 0,
+ "doctype": "Data Migration Plan",
+ "idx": 444,
+ "mappings": [
+  {
+   "enabled": 1,
+   "mapping": "Mautic Segment to ERPNext Segment"
+  },
+  {
+   "enabled": 1,
+   "mapping": "Mautic Company to ERPNext Customer"
+  },
+  {
+   "enabled": 1,
+   "mapping": "Mautic Contact to ERPNext Contact"
+  },
+  {
+   "enabled": 1,
+   "mapping": "ERPNext Customer to Mautic Companies"
+  },
+  {
+   "enabled": 1,
+   "mapping": "ERPNext Contact to Mautic Contact"
+  },
+  {
+   "enabled": 0,
+   "mapping": "Mautic Segments"
+  }
+ ],
+ "modified": "2018-08-02 13:41:26.116719",
+ "modified_by": "Administrator",
+ "module": "Mautic",
+ "name": "Mautic Sync",
+ "owner": "Administrator",
+ "plan_name": "Mautic Sync"
 }

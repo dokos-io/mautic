@@ -37,7 +37,7 @@
  "mapping_name": "Mautic Contact to ERPNext Contact",
  "mapping_type": "Pull",
  "migration_id_field": "mautic_sync_id",
- "modified": "2018-07-06 19:21:41.793223",
+ "modified": "2018-08-02 13:41:26.197221",
  "modified_by": "Administrator",
  "name": "Mautic Contact to ERPNext Contact",
  "owner": "Administrator",
