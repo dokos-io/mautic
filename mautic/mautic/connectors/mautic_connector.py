@@ -67,13 +67,13 @@ class MauticConnector(BaseConnection):
 				try:
 					return self.insert_contacts(doc)
 				except Exception as e:
-					frappe.log_error(doc + "<br>" + e, 'Mautic Contact Insert Error')
+					frappe.log_error("Doc {0}: {1}".format(doc, e), 'Mautic Contact Insert Error')
 
 		if doctype == 'Company':
 			try:
 				return self.insert_companies(doc)
 			except Exception as e:
-				frappe.log_error(doc + "<br>" + e, 'Mautic Company Insert Error')
+				frappe.log_error("Doc {0}: {1}".format(doc, e), 'Mautic Company Insert Error')
 
 	def update(self, doctype, doc, migration_id):
 		if doctype == 'Contact':
@@ -83,26 +83,26 @@ class MauticConnector(BaseConnection):
 				try:
 					return self.update_contacts(doc, migration_id)
 				except Exception as e:
-					frappe.log_error(doc + "<br>" + e, 'Mautic Contact Update Error')
+					frappe.log_error("Doc {0}: {1}".format(doc, e), 'Mautic Contact Update Error')
 
 		if doctype == 'Company':
 			try:
 				return self.update_companies(doc, migration_id)
 			except Exception as e:
-				frappe.log_error(doc + "<br>" + e, 'Mautic Company Update Error')
+				frappe.log_error("Doc {0}: {1}".format(doc, e), 'Mautic Company Update Error')
 
 	def delete(self, doctype, migration_id):
 		if doctype == 'Contact':
 			try:
-				return self.delete_contacts(doc, migration_id)
+				return self.delete_contacts(migration_id)
 			except Exception as e:
-				frappe.log_error(migration_id + "<br>" + e, 'Mautic Contact Delete Error')
+				frappe.log_error("Id {0}: {1}".format(migration_id, e), 'Mautic Contact Delete Error')
 
 		if doctype == 'Company':
 			try:
-				return self.delete_companies(doc, migration_id)
+				return self.delete_companies(migration_id)
 			except Exception as e:
-				frappe.log_error(migration_id + "<br>" + e, 'Mautic Company Delete Error')
+				frappe.log_error("Id {0}: {1}".format(migration_id, e), 'Mautic Company Delete Error')
 
 	def get_contacts(self, search, start=0, page_length=10):
 		contacts = Contacts(client=self.mautic_connect)
@@ -152,7 +152,7 @@ class MauticConnector(BaseConnection):
 		created_contact = contacts.create(dict(doc))
 
 		if 'errors' in created_contact:
-			frappe.log_error(doc + "<br>" + created_contact['errors'], "Mautic Contact Insert Error")
+			frappe.log_error("Doc {0}: {1}".format(doc, created_contact['errors']), "Mautic Contact Insert Error")
 		else:
 			return {self.name_field: created_contact["contact"]["id"]}
 
@@ -161,7 +161,7 @@ class MauticConnector(BaseConnection):
 		created_company = companies.create(dict(doc))
 
 		if 'errors' in created_company:
-			frappe.log_error(doc + "<br>" + created_company['errors'], "Mautic Companies Insert Error")
+			frappe.log_error("Doc {0}: {1}".format(doc, created_company['errors']), "Mautic Companies Insert Error")
 		else:
 			return {self.name_field: created_company["company"]["id"]}
 
@@ -170,7 +170,7 @@ class MauticConnector(BaseConnection):
 		updated_contact = contacts.edit(obj_id=migration_id, parameters=dict(doc), create_if_not_exists=True)
 
 		if 'errors' in updated_contact:
-			frappe.log_error(updated_contact['errors'], "Mautic Contact Update Error")
+			frappe.log_error("Id {0}: {1}".format(migration_id, updated_contact['errors']), "Mautic Contact Update Error")
 		else:
 			return {self.name_field: updated_contact["contact"]["id"]}
 
@@ -179,24 +179,26 @@ class MauticConnector(BaseConnection):
 		updated_company = companies.edit(obj_id=migration_id, parameters=dict(doc), create_if_not_exists=True)
 
 		if 'errors' in updated_company:
-			frappe.log_error(updated_company['errors'], "Mautic Company Update Error")
+			frappe.log_error("Id {0}: {1}".format(migration_id, updated_company['errors']), "Mautic Company Update Error")
 		else:
 			return {self.name_field: updated_company["company"]["id"]}
 
-	def delete_contacts(self, doc, migration_id):
+	def delete_contacts(self, migration_id):
 		contacts = Contacts(client=self.mautic_connect)
 		deleted_contact = contacts.delete(obj_id=migration_id)
 
 		if 'errors' in deleted_contact:
-			frappe.log_error(deleted_contact['errors'], "Mautic Contact Deletion Error")
+			frappe.log_error("Id {0}: {1}".format(migration_id, deleted_contact['errors']), "Mautic Contact Deletion Error")
+			return {self.name_field: migration_id, 'error': True}
 		else:
 			return {self.name_field: deleted_contact["contact"]["id"]}
 
-	def delete_companies(self, doc, migration_id):
+	def delete_companies(self, migration_id):
 		companies = Companies(client=self.mautic_connect)
 		deleted_company = companies.delete(obj_id=migration_id)
 
 		if 'errors' in deleted_company:
-			frappe.log_error(deleted_company['errors'], "Mautic Company Deletion Error")
+			frappe.log_error("Id {0}: {1}".format(migration_id, deleted_company['errors']), "Mautic Company Deletion Error")
+			return {self.name_field: migration_id, 'error': True}
 		else:
 			return {self.name_field: deleted_company["company"]["id"]}

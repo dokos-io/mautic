@@ -1,5 +1,5 @@
 ## Mautic
-Version: 1.0.0 beta
+Version: 1.3.2
 
 #### Installation
 
@@ -21,6 +21,15 @@ Verify that your scheduler is enabled (`bench enable-scheduler`).
 Your ERPNext and Mautic sites need to have SSL certificates.
 
 #### Features
+
+##### Mautic Segment to ERPNext "Mautic Segment"
+
+*Basic Mapping*  
+
+|Source|Flow|Target|
+|---|---|---|
+|Name| --> |Segment Name|
+|Description| --> |Segment Description|
 
 ##### Mautic Company to ERPNext Customer
 
@@ -75,6 +84,10 @@ Else a new Lead is created and linked to the contact.
 |Contact Mobile No| --> |Contact Mobile|
 |Contact Linked Customer| --> |Contact Company|
 
+*Pre Processing*
+
+If the contact is not linked to a customer or a lead, it is not sent to Mautic.
+If the contact's email address is "Guest", it is not sent to Mautic.
 
 #### License
 GPLv3

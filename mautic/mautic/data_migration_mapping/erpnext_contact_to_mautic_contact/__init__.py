@@ -14,6 +14,9 @@ def pre_process(doc):
 	except:
 		return doc
 
+	if doc.email_id=="Guest":
+		reject = 1
+
 	returned_doc = {
 		'first_name': doc.first_name,
 		'last_name': doc.last_name,
