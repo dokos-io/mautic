@@ -70,13 +70,20 @@ class MauticSettings(Document):
 			mautic_sync.module = "Mautic"
 			mautic_sync.update({"mappings":[]})
 
-			mappings = ["Mautic Company to ERPNext Customer", "Mautic Contact to ERPNext Contact", "ERPNext Customer to Mautic Companies", "ERPNext Contact to Mautic Contact"]
+			mappings = ["Mautic Segment to ERPNext Segment", "Mautic Company to ERPNext Customer", "Mautic Contact to ERPNext Contact", 
+			"ERPNext Customer to Mautic Companies", "ERPNext Contact to Mautic Contact", "Mautic Segments"]
 
 			for mapping in mappings:
-				mautic_sync.append("mappings", {
-					"mapping": mapping,
-					"enabled": 1
-				})
+				if mapping == "Mautic Segments":
+					mautic_sync.append("mappings", {
+						"mapping": mapping,
+						"enabled": 0
+					})
+				else:
+					mautic_sync.append("mappings", {
+						"mapping": mapping,
+						"enabled": 1
+					})
 			mautic_sync.save()
 			frappe.db.commit()
 			return
@@ -85,13 +92,20 @@ class MauticSettings(Document):
 			mautic_sync = frappe.get_doc('Data Migration Plan', 'Mautic Sync')
 			mautic_sync.module = "Mautic"
 
-			mappings = ["Mautic Company to ERPNext Customer", "Mautic Contact to ERPNext Contact", "ERPNext Customer to Mautic Companies", "ERPNext Contact to Mautic Contact"]
+			mappings = ["Mautic Segment to ERPNext Segment", "Mautic Company to ERPNext Customer", "Mautic Contact to ERPNext Contact", 
+			"ERPNext Customer to Mautic Companies", "ERPNext Contact to Mautic Contact", "Mautic Segments"]
 
 			for mapping in mappings:
-				mautic_sync.append("mappings", {
-					"mapping": mapping,
-					"enabled": 1
-				})
+				if mapping == "Mautic Segments":
+					mautic_sync.append("mappings", {
+						"mapping": mapping,
+						"enabled": 0
+					})
+				else:
+					mautic_sync.append("mappings", {
+						"mapping": mapping,
+						"enabled": 1
+					})
 			mautic_sync.insert()
 
 @frappe.whitelist()
