@@ -188,7 +188,10 @@ class MauticConnector(BaseConnection):
 		deleted_contact = contacts.delete(obj_id=migration_id)
 
 		if 'errors' in deleted_contact:
-			frappe.log_error("Id {0}: {1}".format(migration_id, deleted_contact['errors']), "Mautic Contact Deletion Error")
+			if deleted_contact['errors']['code'] == 404:
+				pass
+			else:
+				frappe.log_error("Id {0}: {1}".format(migration_id, deleted_contact['errors']), "Mautic Contact Deletion Error")
 			return {self.name_field: migration_id, 'error': True}
 		else:
 			return {self.name_field: deleted_contact["contact"]["id"]}
@@ -198,7 +201,10 @@ class MauticConnector(BaseConnection):
 		deleted_company = companies.delete(obj_id=migration_id)
 
 		if 'errors' in deleted_company:
-			frappe.log_error("Id {0}: {1}".format(migration_id, deleted_company['errors']), "Mautic Company Deletion Error")
+			if deleted_company['errors']['code'] == 404:
+				pass
+			else:
+				frappe.log_error("Id {0}: {1}".format(migration_id, deleted_company['errors']), "Mautic Company Deletion Error")
 			return {self.name_field: migration_id, 'error': True}
 		else:
 			return {self.name_field: deleted_company["company"]["id"]}
