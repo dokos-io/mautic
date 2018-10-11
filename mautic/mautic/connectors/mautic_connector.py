@@ -201,7 +201,7 @@ class MauticConnector(BaseConnection):
 		deleted_company = companies.delete(obj_id=migration_id)
 
 		if 'errors' in deleted_company:
-			if deleted_company['errors']['code'] == 404:
+			if deleted_company['errors'][0]['code'] == 404:
 				pass
 			else:
 				frappe.log_error("Id {0}: {1}".format(migration_id, deleted_company['errors']), "Mautic Company Deletion Error")
