@@ -8,11 +8,33 @@ This application requires [Frappe](https://github.com/frappe/frappe) and [ERPNex
 2. `bench install-app mautic`
 3. `bench restart && bench migrate`
 
-In Mautic, create new API credentials for OAuth2.  
-In the redirect URI section add the following URI:
-`{Your Site}?cmd=mautic.mautic.doctype.mautic_settings.mautic_settings.mautic_callback`
+#### Mautic configuration
 
-In ERPNext, add your API credentials, the link to your Mautic instance, save and click on "Allow Mautic Access"  
+In Mautic:
+* in the Configuration > API Settings, enable API and HTTP Basic Auth then _Save & Close_
+* in the API Credentials, create new API credentials for OAuth2:
+  * enter a name to identify your ERPNext instance
+  * enter the redirect URI like this `{https://your.erpnext.site}?cmd=mautic.mautic.doctype.mautic_settings.mautic_settings.mautic_callback&grant_type=authorization_code&response_type=code,`:
+    * make sure to use the correct protocol (`http` or `https`) given your frappe hostname and SSL configuration
+    * (of course) adapt the domain name
+    * do not leave any trailing `/` at the end of your domain name
+    * you can add more URI by separating them by a `,`
+    * make sure to always have a `,` at the end or Mautic will not use the URI :warning:
+* _Save & Close_
+
+
+#### ERPNext Mautic configuration
+
+In ERPNext:
+* enable Mautic
+* add your API credentials:
+  * enter the link to your Mautic instance, **without any trailing slash**: `https://your.mautic.site`
+  * copy the "_Public Key_" from Mautic to the _Client ID_
+  * copy the "_Secret Key_" from Mautic to the _Client Secret_
+* save
+* click on "Allow Mautic Access" (you should be redirected to your Mautic instance)
+  * login as administrator
+  * when prompted, accept the application to connect to Mautic
 
 The application is scheduled to run hourly by default.
 Verify that your scheduler is enabled (`bench enable-scheduler`).
