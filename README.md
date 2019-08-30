@@ -2,7 +2,7 @@
 
 #### Installation
 
-This application requires [Frappe](https://github.com/frappe/frappe) and [ERPNext](https://github.com/frappe/erpnext) v10.0.0 or higher.
+This application requires [Frappe](https://github.com/frappe/frappe) and [ERPNext](https://github.com/frappe/erpnext) v10.0, v11.0 (not tested on higher versions).
 
 1. `bench get-app mautic https://github.com/DOKOS-IO/mautic/`
 2. `bench install-app mautic`
